@@ -1,20 +1,18 @@
 <template>
   <div id="app">
-  <h1>Space App: From Testosterone Driven Development</h1>
-<button class="w3-button w3-khaki">Sun</button>
-<button class="w3-button w3-khaki">Mercury</button>
-<button class="w3-button w3-khaki">Venus</button>
-<div class="earth">
-  <div class="wrap">
-     <div class="background"></div>
-     <div class="clouds"></div>
-  </div>
-  <div class="mask"></div>
-</div>
-<button class="w3-button w3-red">Mars</button>
-<button class="w3-button w3-purple">Jupiter</button>
-<button class="w3-button w3-yellow">Uranus</button>
-<button class="w3-button w3-black">Neptune</button>
+  <h1>Space App</h1>
+
+<section class="planets">
+<!-- <img src="./assets/sun.png" alt="sun" width="800" height="800"> -->
+<figure><img src="./assets/mercury.png" alt="mercury" width="50" height="50"><figcaption>Mercury</figcaption></figure>
+<figure><img src="./assets/venus.png" alt="venus" width="145" height="145"><figcaption>Venus</figcaption></figure>
+<figure><img src="./assets/earth.png" alt="earth" width="150" height="150"><figcaption>Earth</figcaption></figure>
+<figure><img src="./assets/mars.png" alt="mars" width="60" height="60"><figcaption>Mars</figcaption></figure>
+<figure><img src="./assets/jupiter.png" alt="jupiter" width="300" height="300"><figcaption>Jupiter</figcaption></figure>
+<figure><img src="./assets/saturn.png" alt="saturn" width="280" height="280"><figcaption>Saturn</figcaption></figure>
+<figure><img src="./assets/uranus.png" alt="uranus" width="250" height="250"><figcaption>Uranus</figcaption></figure>
+<figure><img src="./assets/neptune.png" alt="neptune" width="250" height="250"><figcaption>Neptune</figcaption></figure>
+</section>
   </div>
 </template>
 
@@ -57,64 +55,18 @@ body{
   background:url(http://artem.anmedio.ru/dev/planet/space.jpg) repeat;
 }
 
-.earth{
-  width:300px;
-  height:300px;
-  position:absolute;
-  border-radius:50%;
-  overflow:hidden;
-  box-shadow: 0 0 60px -20px rgba(255, 189, 3, 0.72), -14px -15px 40px -10px rgba(255, 238, 191, 0.23);
-  left:50%;
-  top:50%;
-  margin:-150px;
-}
-.earth .mask{
-  width:100%;
-  height:100%;
-  position: absolute;
-  box-shadow:inset -10px -10px 40px #251303, inset 10px 10px 30px -10px rgba(255, 204, 159, 0.6);
-  border-radius:50%;
-}
-.earth .background{
-  animation: translateBackground 40s infinite linear;
-  background:url('./assets/earth.jpg') repeat-x;
-  width:300px;
-  height:300px;
-  position:absolute;
-  border-radius:50%;
+.planets{
+  display: inline-block;
+  overflow: scroll;
 }
 
-.earth .clouds{
-  background:url(http://artem.anmedio.ru/dev/planet/clouds.png) repeat-x;
-  width:300px;
-  height:300px;
-  position:absolute;
-  border-radius:50%;
-  animation: translateBackground 30s infinite linear;
-  opacity: 0.4;
+img:hover{
+  transform: scale(1.5);
 }
-
-.earth .wrap{
-  width:300px;
-  height:300px;
-  position:absolute;
-  border-radius:50%;
-  animation: rotatePlanet 150s infinite linear;
+figure{
+  display:inline-block;
 }
-@keyframes translateBackground{
-  0%{
-    background-position-x:0;
-  }
-  100%{
-    background-position-x:-600px;
-  }
-}
-@keyframes rotatePlanet{
-  0%{
-    transform:rotateZ(0);
-  }
-  100%{
-    transform:rotateZ(-360deg);
-  }
+figcaption{
+    transform: rotate(90deg);
 }
 </style>
