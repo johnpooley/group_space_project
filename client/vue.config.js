@@ -34,32 +34,32 @@ module.exports={
       title:'mars',
       chunk:['chunk-vendors', 'chunk-common', 'mars']
     },
-    //
-    // 'jupiter':{
-    //   entry: './src/pages/jupiter/main.js',
-    //   template: './public/index.html',
-    //   title:'jupiter',
-    //   chunk:['chunk-vendors', 'chunk-common', 'jupiter']
-    // },
-    //
-    // 'saturn':{
-    //   entry: './src/pages/saturn/main.js',
-    //   template: './public/index.html',
-    //   title:'saturn',
-    //   chunk:['chunk-vendors', 'chunk-common', 'saturn']
-    // },
-    //
-    // 'uranus':{
-    //   entry: './src/pages/uranus/main.js',
-    //   template: './public/index.html',
-    //   title:'uranus',
-    //   chunk:['chunk-vendors', 'chunk-common', 'uranus']
-    // },
-    // 'neptune':{
-    //   entry: './src/pages/neptune/main.js',
-    //   template: './public/index.html',
-    //   title:'pluto',
-    //   chunk:['chunk-vendors', 'chunk-common', 'neptune']
-    // }
+
+    'jupiter':{
+      entry: './src/pages/jupiter/main.js',
+      template: './public/index.html',
+      title:'jupiter',
+      chunk:['chunk-vendors', 'chunk-common', 'jupiter']
+    },
+
+    'saturn':{
+      entry: './src/pages/saturn/main.js',
+      template: './public/index.html',
+      title:'saturn',
+      chunk:['chunk-vendors', 'chunk-common', 'saturn']
+    },
+
+    'uranus':{
+      entry: './src/pages/uranus/main.js',
+      template: './public/index.html',
+      title:'uranus',
+      chunk:['chunk-vendors', 'chunk-common', 'uranus']
+    },
+    'neptune':{
+      entry: './src/pages/neptune/main.js',
+      template: './public/index.html',
+      title:'pluto',
+      chunk:['chunk-vendors', 'chunk-common', 'neptune']
+    }
   }
 }
