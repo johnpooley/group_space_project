@@ -2,6 +2,7 @@
   <div id="app">
   <h1>Space App</h1>
 
+<<<<<<< HEAD
 <section class="planets">
 <!-- <img src="./assets/sun.png" alt="sun" width="800" height="800"> -->
 <figure><img src="./assets/mercury.png" alt="mercury" width="50" height="50"><figcaption>Mercury</figcaption></figure>
@@ -13,6 +14,18 @@
 <figure><img src="./assets/uranus.png" alt="uranus" width="250" height="250"><figcaption>Uranus</figcaption></figure>
 <figure><img src="./assets/neptune.png" alt="neptune" width="250" height="250"><figcaption>Neptune</figcaption></figure>
 </section>
+=======
+    <section class="planets">
+      <figure> <a href="../mercury"><img src="../../assets/mercury.png" alt="mercury" width="50" height="50"></a><figcaption>Mercury</figcaption></a></figure>
+      <figure> <a href="../venus"> <img src="../../assets/venus.png" alt="venus" width="145" height="145"></a><figcaption>Venus</figcaption></figure>
+      <figure> <a href="../earth"><img src="../../assets/earth.png" alt="earth" width="150" height="150"></a><figcaption>Earth</figcaption></figure>
+      <figure><a href="../mars"><img src="../../assets/mars.png" alt="mars" width="60" height="60"></a><figcaption>Mars</figcaption></figure>
+      <figure><a href="../jupiter"><img src="../../assets/jupiter.png" alt="jupiter" width="300" height="300"></a><figcaption>Jupiter</figcaption></figure>
+      <figure><a href="../saturn"><img src="../../assets/saturn.png" alt="saturn" width="280" height="280"></a><figcaption>Saturn</figcaption></figure>
+      <figure><a href="../uranus"><img src="../../assets/uranus.png" alt="uranus" width="250" height="250"></a><figcaption>Uranus</figcaption></figure>
+      <figure><a href="../neptune"><img src="../../assets/neptune.png" alt="neptune" width="250" height="250"></a><figcaption>Neptune</figcaption></figure>
+    </section>
+>>>>>>> 4289b58c50456eca62baf3e6295c73d1f96eaf4b
   </div>
 </template>
 
