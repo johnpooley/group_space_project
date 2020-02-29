@@ -1,7 +1,7 @@
 module.exports={
   pages: {
-    'mainPage':{
-      entry: './src/pages/mainPage/main.js',
+    'welcome':{
+      entry: './src/pages/welcome/main.js',
       template: './public/index.html',
       title:'welcome',
       chunks:['chunk-vendors', 'chunk-common','welcome']
