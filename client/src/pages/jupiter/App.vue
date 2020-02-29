@@ -22,7 +22,7 @@ export default {
     frenchFetch('https://api.le-systeme-solaire.net/rest/bodies/{jupiter}')
     .then(res => res.json())
     .then(frenchJupiter => this.frenchJupiter = frenchJupiter);
-    
+
     wikiFetch('https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Jupiter&origin=*')
     .then(res => res.json())
     .then(wikiJupiter => this.wikiJupiter = wikiJupiter)
