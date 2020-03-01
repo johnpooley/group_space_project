@@ -1,7 +1,16 @@
 <template lang="html">
   <div id="jupiter">
-    <h1>{{ frenchJupiter }}</h1>
-    <h1>{{ wikiJupiter }}</h1>
+    <h1>{{ frenchJupiter.englishName }}</h1>
+    <!-- wikidata API data seems to kill Vue...sometimes-->
+    <p>{{ wikiJupiter.query.pages[38930].extract }}</p>
+    <!-- need to loop through this moon array -->
+    <h2>Moons: {{ frenchJupiter.moons[0].moon }}</h2>
+    <h2>Moons: {{ frenchJupiter.moons[0].rel }}</h2>
+    <h2>Distance from Sun: {{ frenchJupiter.perihelion }}</h2>
+    <h2>Mass: {{ frenchJupiter.mass.massValue }}</h2>
+    <h2>Gravity: {{ frenchJupiter.gravity }}</h2>
+    <h2>Radius: {{ frenchJupiter.meanRadius }}</h2>
+    <h2>Discovered by: {{ frenchJupiter.discoveredBy }} N/A </h2>
   </div>
 
 </template>
@@ -19,14 +28,15 @@ export default {
     //fetch from wikidata API and French API
   },
   mounted(){
-    frenchFetch('https://api.le-systeme-solaire.net/rest/bodies/{jupiter}')
+    fetch('https://api.le-systeme-solaire.net/rest/bodies/jupiter')
     .then(res => res.json())
     .then(frenchJupiter => this.frenchJupiter = frenchJupiter);
 
-    wikiFetch('https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Jupiter&origin=*')
+    fetch('https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Jupiter&origin=*')
     .then(res => res.json())
     .then(wikiJupiter => this.wikiJupiter = wikiJupiter)
   }
+}
 </script>
 
 <style lang="css" scoped>

@@ -1,8 +1,15 @@
 <template lang="html">
   <div id="mercury">
-    <h1>{{ frenchMercury }}</h1>
-    <h1>{{ wikiMercury }}</h1>
-
+    <h1>{{ frenchMercury.englishName }}</h1>
+    <!-- wikidata API data seems to kill Vue...sometimes-->
+    <!-- <p>{{ wikiMercury.query.pages[19694].extract }}</p> -->
+    <h2>Moons: {{ frenchMercury.moons[0].moon }}</h2>
+    <h2>Moons: {{ frenchMercury.moons[0].rel }}</h2>
+    <h2>Distance from Sun: {{ frenchMercury.perihelion }}</h2>
+    <h2>Mass: {{ frenchMercury.mass.massValue }}</h2>
+    <h2>Gravity: {{ frenchMercury.gravity }}</h2>
+    <h2>Radius: {{ frenchMercury.meanRadius }}</h2>
+    <h2>Discovered by: {{ frenchMercury.discoveredBy }} N/A </h2>
   </div>
 
 </template>
@@ -20,16 +27,17 @@ export default {
     //fetch from wikidata API and French API
   },
   mounted(){
-    frenchFetch('https://api.le-systeme-solaire.net/rest/bodies/{mercury}')
+    fetch('https://api.le-systeme-solaire.net/rest/bodies/mercury')
     .then(res => res.json())
     .then(frenchMercury => this.frenchMercury = frenchMercury);
 
     // how do we arrange multiple API fetch requests?
 
-    wikiFetch('https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Mercury_(planet)&origin=*')
+    fetch('https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Mercury_(planet)&origin=*')
     .then(res => res.json())
     .then(wikiMercury => this.wikiMercury = wikiMercury)
   }
+}
 </script>
 
 <style lang="css" scoped>
