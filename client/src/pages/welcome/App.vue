@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-  <h1>Space App</h1>
+    <h1>Space App</h1>
 
     <section class="planets">
       <figure> <a href="../mercury"><img src="../../assets/mercury.png" alt="mercury" width="50" height="50"></a><figcaption>Mercury</figcaption></a></figure>
@@ -12,31 +12,50 @@
       <figure><a href="../uranus"><img src="../../assets/uranus.png" alt="uranus" width="250" height="250"></a><figcaption>Uranus</figcaption></figure>
       <figure><a href="../neptune"><img src="../../assets/neptune.png" alt="neptune" width="250" height="250"></a><figcaption>Neptune</figcaption></figure>
     </section>
+    <section>
+      <h1>NASA Photo of The Day</h1>
+      <input v-model="selectedDate" type="date">
+      <button @click="apod">Get new image</button>
+      <nasa-image-view :nasaImage="nasaImage" ></nasa-image-view>
+    </section>
   </div>
 </template>
 
 <script>
 
-import { eventBus } from './main.js';
+import { eventBus } from './main.js'
+import NasaImageView from './src/components/NasaImageView.vue'
 
 export default {
   name: 'App',
   data(){
     return{
       planets:[],
-      selectedPlanet: null
+      selectedPlanet: null,
+      nasaImage: [],
+      selectedDate: '2020-02-20'
     };
   },
 
-mounted(){
-  fetch('https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Earth&origin=*')
-  .then(res => res.json())
-  .then(planets => this.planets = planets)
+  mounted(){
+    fetch('https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Earth&origin=*')
+    .then(res => res.json())
+    .then(planets => this.planets = planets)
 
-  eventBus.$on('planet-selected', (planet) => {
+    eventBus.$on('planet-selected', (planet) => {
       this.selectedPlanet = planet;
     })
-}
+  },
+  methods: {
+    apod(selectedDate) {
+      fetch('https://api.nasa.gov/planetary/apod?api_key=C0ehDJAti1cLdlnjQciOknJg4WMAeOBqcpOL1G4a&date=' + this.selectedDate + '')
+      .then( res => res.json())
+      .then(nasaImage => this.nasaImage = nasaImage)
+    }
+  },
+  components: {
+    "nasa-image-view": NasaImageView
+  }
 }
 </script>
 
@@ -66,6 +85,6 @@ figure{
   display:inline-block;
 }
 figcaption{
-    transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 </style>
