@@ -1,8 +1,7 @@
 <template lang="html">
-  <div id="saturn">
+  <div id="saturn" v-if="frenchSaturn">
     <h1>{{ frenchSaturn.englishName }}</h1>
-    <!-- wikidata API data seems to kill Vue...sometimes -->
-    <p>{{ wikiSaturn.query.pages[44474].extract }}</p>
+    <p v-if="wikiSaturn">{{ wikiSaturn.query.pages[44474].extract }}</p>
     <h2>Moons: {{ frenchSaturn.moons[0].moon }}</h2>
     <h2>Moons: {{ frenchSaturn.moons[0].rel }}</h2>
     <h2>Distance from Sun: {{ frenchSaturn.perihelion }}</h2>
@@ -21,8 +20,8 @@ export default {
   name: 'saturn',
   data(){
     return{
-      frenchSaturn:[],
-      wikiSaturn: []
+      frenchSaturn:null,
+      wikiSaturn: null
 
     };
     //fetch from wikidata API and French API
