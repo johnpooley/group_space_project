@@ -3,16 +3,21 @@
     <h1>{{ frenchMars.englishName }}</h1>
     <section class = "blurb">
     <p v-if="wikiMars">{{ wikiMars.query.pages[14640471].extract }}</p></section>
-    <!-- need to loop through this moon array -->
-      <div class ="facts"></section>
-    <h2>Moons: {{ frenchMars.moons[0].moon }}</h2>
-    <h2>Moons: {{ frenchMars.moons[0].rel }}</h2>
-    <h2>Distance from Sun: {{ frenchMars.perihelion }}</h2>
-    <h2>Mass: {{ frenchMars.mass.massValue }}</h2>
-    <h2>Gravity: {{ frenchMars.gravity }}</h2>
-    <h2>Radius: {{ frenchMars.meanRadius }}</h2>
-    <h2>Discovered by: {{ frenchMars.discoveredBy }} N/A </h2>
+    <div class="form-group">
+
+
   </div>
+    <!-- need to loop through this moon array -->
+    <div class ="facts"></section>
+        <button class="button_play" @click.prevent="playSound('https://drive.google.com/uc?export=download&id=1t_YLXHzoosGu6dI3MpHovS8rkLSFKDf9')"></button>
+      <h2>Moons: {{ frenchMars.moons[0].moon }}</h2>
+      <h2>Moons: {{ frenchMars.moons[0].rel }}</h2>
+      <h2>Distance from Sun: {{ frenchMars.perihelion }}</h2>
+      <h2>Mass: {{ frenchMars.mass.massValue }}</h2>
+      <h2>Gravity: {{ frenchMars.gravity }}</h2>
+      <h2>Radius: {{ frenchMars.meanRadius }}</h2>
+      <h2>Discovered by: {{ frenchMars.discoveredBy }} N/A </h2>
+    </div>
 
   </div>
 
@@ -26,11 +31,20 @@ export default {
     return{
       frenchMars:null,
       wikiMars: null
-
     };
     //fetch from wikidata API and French API
   },
+
+  methods: {
+    playSound (sound) {
+      if(sound) {
+        var audio = new Audio(sound);
+        audio.play();
+      }
+    }
+  },
   mounted(){
+
     fetch('https://api.le-systeme-solaire.net/rest/bodies/mars')
     .then(res => res.json())
     .then(frenchMars => this.frenchMars = frenchMars);
@@ -53,5 +67,17 @@ export default {
   color: white;
   margin-left: 20px;
   padding: 10px;
+}
+.button_play{
+width: 20px;
+height: 20px;
+border-style: solid;
+border-width: 0px;
+border-color: #202020;
+border-width: 10px 0px 10px 20px;
+border-color: red blue green yellow;
+box-sizing: border-box;
+border-color: transparent transparent transparent #dd6644;
+border-radius: 20%;
 }
 </style>

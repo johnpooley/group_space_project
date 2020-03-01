@@ -40,6 +40,7 @@ export default {
     };
   },
    mounted:function() {
+
      fetch('https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=International_Space_Station&origin=*')
      .then(res => res.json())
      .then(wikiIss => this.wikiIss = wikiIss);
