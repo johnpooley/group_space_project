@@ -24,7 +24,7 @@
 <script>
 
 import { eventBus } from './main.js'
-import NasaImageView from './src/components/NasaImageView.vue'
+import NasaImageView from '../../components/NasaImageView.vue'
 
 export default {
   name: 'App',
