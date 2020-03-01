@@ -1,15 +1,17 @@
 <template lang="html">
   <div id="earth" v-if="frenchEarth">
     <h1>{{ frenchEarth.englishName }}</h1>
+    <section class ="blurb">
     <p v-if="wikiEarth">{{ wikiEarth.query.pages[9228].extract }}</p>
-    <h2>Moons: {{ frenchEarth.moons[0].moon }}</h2>
-    <h2>Moons: {{ frenchEarth.moons[0].rel }}</h2>
-    <h2>Distance from Sun: {{ frenchEarth.perihelion }}</h2>
-    <h2>Mass: {{ frenchEarth.mass.massValue }}</h2>
-    <h2>Gravity: {{ frenchEarth.gravity }}</h2>
-    <h2>Radius: {{ frenchEarth.meanRadius }}</h2>
-    <h2>Discovered by: {{ frenchEarth.discoveredBy }} N/A </h2>
-
+  </section>
+  <div class ="facts">
+    <h2>Moons</h2> <p>{{ frenchEarth.moons[0].moon }}</p>
+    <h2>Moons</h2> {{ frenchEarth.moons[0].rel }}</p>
+    <h2>Distance from Sun</h2> {{ frenchEarth.perihelion }}</p>
+    <h2>Mass</h2> {{ frenchEarth.mass.massValue }}</p>
+    <h2>Gravity</h2> {{ frenchEarth.gravity }}</p>
+    <h2>Radius</h2> {{ frenchEarth.meanRadius }}</p>
+</div>
 
   </div>
 
@@ -42,4 +44,15 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+
+#earth {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 600px;
+  color: white;
+  margin-left: 20px;
+  padding: 10px;
+}
 </style>

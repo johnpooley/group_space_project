@@ -1,7 +1,9 @@
 <template lang="html">
   <div id="saturn" v-if="frenchSaturn">
     <h1>{{ frenchSaturn.englishName }}</h1>
-    <p v-if="wikiSaturn">{{ wikiSaturn.query.pages[44474].extract }}</p>
+    <section class = "blurb">
+    <p v-if="wikiSaturn">{{ wikiSaturn.query.pages[44474].extract }}</p></section>
+      <div class ="facts">
     <h2>Moons: {{ frenchSaturn.moons[0].moon }}</h2>
     <h2>Moons: {{ frenchSaturn.moons[0].rel }}</h2>
     <h2>Distance from Sun: {{ frenchSaturn.perihelion }}</h2>
@@ -9,6 +11,7 @@
     <h2>Gravity: {{ frenchSaturn.gravity }}</h2>
     <h2>Radius: {{ frenchSaturn.meanRadius }}</h2>
     <h2>Discovered by: {{ frenchSaturn.discoveredBy }} N/A </h2>
+  </div>
 
   </div>
 
@@ -41,4 +44,13 @@ export default {
 </script>
 
 <style lang="css" scoped>
+#saturn {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 600px;
+  color: white;
+  margin-left: 20px;
+  padding: 10px;
+}
 </style>

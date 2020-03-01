@@ -1,8 +1,10 @@
 <template lang="html">
   <div id="mars" v-if="frenchMars">
     <h1>{{ frenchMars.englishName }}</h1>
-    <p v-if="wikiMars">{{ wikiMars.query.pages[14640471].extract }}</p>
+    <section class = "blurb">
+    <p v-if="wikiMars">{{ wikiMars.query.pages[14640471].extract }}</p></section>
     <!-- need to loop through this moon array -->
+      <div class ="facts"></section>
     <h2>Moons: {{ frenchMars.moons[0].moon }}</h2>
     <h2>Moons: {{ frenchMars.moons[0].rel }}</h2>
     <h2>Distance from Sun: {{ frenchMars.perihelion }}</h2>
@@ -10,6 +12,7 @@
     <h2>Gravity: {{ frenchMars.gravity }}</h2>
     <h2>Radius: {{ frenchMars.meanRadius }}</h2>
     <h2>Discovered by: {{ frenchMars.discoveredBy }} N/A </h2>
+  </div>
 
   </div>
 
@@ -42,4 +45,13 @@ export default {
 </script>
 
 <style lang="css" scoped>
+#mars {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 600px;
+  color: white;
+  margin-left: 20px;
+  padding: 10px;
+}
 </style>

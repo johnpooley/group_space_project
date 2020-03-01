@@ -1,12 +1,15 @@
 <template lang="html">
   <div id="mercury" v-if="frenchMercury">
     <h1>{{ frenchMercury.englishName }}</h1>
-    <p v-if="wikiMercury">{{ wikiMercury.query.pages[19694].extract }}</p>
+    <section class = "blurb">
+    <p v-if="wikiMercury">{{ wikiMercury.query.pages[19694].extract }}</p></section>
+      <div class ="facts">
     <h2>Distance from Sun: {{ frenchMercury.perihelion }}</h2>
     <h2>Mass: {{ frenchMercury.mass.massValue }}</h2>
     <h2>Gravity: {{ frenchMercury.gravity }}</h2>
     <h2>Radius: {{ frenchMercury.meanRadius }}</h2>
     <h2>Discovered by: {{ frenchMercury.discoveredBy }} N/A </h2>
+  </div>
   </div>
 
 </template>
@@ -38,4 +41,13 @@ export default {
 </script>
 
 <style lang="css" scoped>
+#mercury {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 600px;
+  color: white;
+  margin-left: 20px;
+  padding: 10px;
+}
 </style>

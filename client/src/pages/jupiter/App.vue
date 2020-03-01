@@ -1,8 +1,11 @@
 <template lang="html">
   <div id="jupiter" v-if="frenchJupiter">
     <h1>{{ frenchJupiter.englishName }}</h1>
+    <section class = "blurb">
     <p v-if="wikiJupiter">{{ wikiJupiter.query.pages[38930].extract }}</p>
+  </section>
     <!-- need to loop through this moon array -->
+      <div class ="facts">
     <h2>Moons: {{ frenchJupiter.moons[0].moon }}</h2>
     <h2>Moons: {{ frenchJupiter.moons[0].rel }}</h2>
     <h2>Distance from Sun: {{ frenchJupiter.perihelion }}</h2>
@@ -10,6 +13,7 @@
     <h2>Gravity: {{ frenchJupiter.gravity }}</h2>
     <h2>Radius: {{ frenchJupiter.meanRadius }}</h2>
     <h2>Discovered by: {{ frenchJupiter.discoveredBy }} N/A </h2>
+  </div>
   </div>
 
 </template>
@@ -39,4 +43,13 @@ export default {
 </script>
 
 <style lang="css" scoped>
+#jupiter {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 600px;
+  color: white;
+  margin-left: 20px;
+  padding: 10px;
+}
 </style>

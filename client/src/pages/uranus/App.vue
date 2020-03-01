@@ -1,7 +1,10 @@
 <template lang="html">
   <div id="uranus" v-if="frenchUranus">
     <h1>{{ frenchUranus.englishName }}</h1>
+    <section class = "blurb">
     <p v-if="wikiUranus">{{ wikiUranus.query.pages[44475].extract }}</p>
+  </section>
+      <div class ="facts">
     <h2>Moons: {{ frenchUranus.moons[0].moon }}</h2>
     <h2>Moons: {{ frenchUranus.moons[0].rel }}</h2>
     <h2>Distance from Sun: {{ frenchUranus.perihelion }}</h2>
@@ -9,6 +12,7 @@
     <h2>Gravity: {{ frenchUranus.gravity }}</h2>
     <h2>Radius: {{ frenchUranus.meanRadius }}</h2>
     <h2>Discovered by: {{ frenchUranus.discoveredBy }} </h2>
+  </div>
 
   </div>
 
@@ -41,4 +45,13 @@ export default {
 </script>
 
 <style lang="css" scoped>
+#uranus {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 600px;
+  color: white;
+  margin-left: 20px;
+  padding: 10px;
+}
 </style>

@@ -1,13 +1,16 @@
 <template lang="html">
   <div id="venus" v-if="frenchVenus">
     <h1>{{ frenchVenus.englishName }}</h1>
+    <section class = "blurb">
     <p v-if="wikiVenus">{{ wikiVenus.query.pages[32745].extract }}</p>
+  </section>
+  <div class ="facts">
     <h2>Distance from Sun: {{ frenchVenus.perihelion }}</h2>
     <h2>Mass: {{ frenchVenus.mass.massValue }}</h2>
     <h2>Gravity: {{ frenchVenus.gravity }}</h2>
     <h2>Radius: {{ frenchVenus.meanRadius }}</h2>
     <h2>Discovered by: {{ frenchVenus.discoveredBy }} </h2>
-
+</div>
   </div>
 
 </template>
@@ -39,4 +42,13 @@ export default {
 </script>
 
 <style lang="css" scoped>
+#venus {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 600px;
+  color: white;
+  margin-left: 20px;
+  padding: 10px;
+}
 </style>
