@@ -9,12 +9,13 @@
     <section class ="blurb">
     <p v-if="wikiIss">{{wikiIss.query.pages[15043].extract}}
     </p></section>
+  <div class ="facts">
     <div class="map">
       <h2>Where is the ISS now?</h2>
     <iframe
       :src="results.map_url"
-      width="600"
-      height="400"
+      width="300"
+      height="300"
       id="gmap_canvas"
       frameborder="0"
       scrolling="no"
@@ -23,6 +24,13 @@
       zoom=".00001"
 
     ></iframe>
+    </div>
+    <h2>Deployed</h2> <p>1998</p>
+    <h2>Call Sign</h2><p>Alpha</p>
+    <h2>Orbital Speed</h2> <p>7.66 km/s</p>
+    <h2>Length</h2> <p>73 m</p>
+    <h2>Width</h2> <p>109 m</p>
+    <h2>Mass</h2> <p>419, 725 kg</p>
   </div>
   </div>
 </template>
@@ -79,19 +87,10 @@ export default {
   vertical-align: middle;
 }
 
-p.iss{
-  font-size: 3em;
-  background-color:rgba(51,51,51,0.5);
-  padding: 20px;
-  border-radius:10%;
-  text-align: center
-}
-
 iframe {
   font-size: 1.4rem;
   background-color: rgba(136, 135, 156, 0.3);
   line-height: 1.5;
-  vertical-align: middle;
   border: 10 px solid #42b983;
   border-radius: 25px;
    border-style: solid;
@@ -101,7 +100,11 @@ iframe {
 .map {
   text-align: center;
   position: absolute;
-  top: 200px;
-  right: 200px;
+  top: -400px;
+  right: -70px;
+}
+
+.facts {
+  top: -1550px
 }
 </style>
