@@ -94,6 +94,6 @@ iframe {
   text-align: center;
   position: absolute;
   top: 200px;
-  right: 0px;
+  right: 200px;
 }
 </style>

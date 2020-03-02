@@ -4,6 +4,13 @@
     <section class = "blurb">
     <p v-if="wikiMercury">{{ wikiMercury.query.pages[19694].extract }}</p></section>
       <div class ="facts">
+        <div class="earth">
+        <div class="wrap">
+           <div class="background"></div>
+           <div class="clouds"></div>
+        </div>
+        <div class="mask"></div>
+      </div>
     <h2>Distance from Sun: {{ frenchMercury.perihelion }}</h2>
     <h2>Mass: {{ frenchMercury.mass.massValue }}</h2>
     <h2>Gravity: {{ frenchMercury.gravity }}</h2>
@@ -49,5 +56,13 @@ export default {
   color: white;
   margin-left: 20px;
   padding: 10px;
+}
+.earth .background{
+  animation: translateBackground 40s infinite linear;
+  background:url('../../assets/planet_masks/mercury.jpg') repeat-x;
+  width:300px;
+  height:300px;
+  position:absolute;
+  border-radius:50%;
 }
 </style>

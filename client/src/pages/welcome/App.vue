@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <h1>Space App</h1>
+
+  <h1>Our Solar System</h1>
 
     <section class="planets">
       <figure> <a href="../mercury"><img src="../../assets/mercury.png" alt="mercury" width="50" height="50"></a><figcaption>Mercury</figcaption></a></figure>

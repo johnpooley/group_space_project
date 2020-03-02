@@ -9,6 +9,13 @@
   </div>
     <!-- need to loop through this moon array -->
     <div class ="facts"></section>
+      <div class="earth">
+      <div class="wrap">
+         <div class="background"></div>
+         <div class="clouds"></div>
+      </div>
+      <div class="mask"></div>
+    </div>
         <button class="button_play" @click.prevent="playSound('https://drive.google.com/uc?export=download&id=1t_YLXHzoosGu6dI3MpHovS8rkLSFKDf9')"></button>
       <h2>Moons: {{ frenchMars.moons[0].moon }}</h2>
       <h2>Moons: {{ frenchMars.moons[0].rel }}</h2>
@@ -79,5 +86,67 @@ border-color: red blue green yellow;
 box-sizing: border-box;
 border-color: transparent transparent transparent #dd6644;
 border-radius: 20%;
+}
+
+.earth{
+  width:300px;
+  height:300px;
+  position:absolute;
+  border-radius:50%;
+  overflow:hidden;
+  box-shadow: 0 0 60px -20px rgba(255, 189, 3, 0.72), -14px -15px 40px -10px rgba(255, 238, 191, 0.23);
+  left:80px;
+  top:-200px;
+  margin:-150px;
+}
+.earth .mask{
+  width:100%;
+  height:100%;
+  position: absolute;
+  box-shadow:inset -10px -10px 40px #251303, inset 10px 10px 30px -10px rgba(255, 204, 159, 0.6);
+  border-radius:50%;
+}
+.earth .background{
+  animation: translateBackground 40s infinite linear;
+  background:url('../../assets/planet_masks/mars.jpg') repeat-x;
+  width:300px;
+  height:300px;
+  position:absolute;
+  border-radius:50%;
+}
+.earth .clouds{
+  background:url(http://artem.anmedio.ru/dev/planet/clouds.png) repeat-x;
+  width:300px;
+  height:300px;
+  position:absolute;
+  border-radius:50%;
+  animation: translateBackground 30s infinite linear;
+  opacity: 0.4;
+}
+.earth .wrap{
+  width:300px;
+  height:300px;
+  position:absolute;
+  border-radius:50%;
+  animation: rotatePlanet 150s infinite linear;
+}
+@keyframes translateBackground{
+  0%{
+    background-position-x:0;
+  }
+  100%{
+    background-position-x:-600px;
+  }
+}
+@keyframes rotatePlanet{
+  0%{
+    transform:rotateZ(0);
+  }
+  100%{
+    transform:rotateZ(-360deg);
+  }
+}
+.facts{
+  top: -1700px
 }
 </style>

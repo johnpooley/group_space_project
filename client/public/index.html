@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+<link href="https://fonts.googleapis.com/css?family=Oxanium|Roboto&display=swap" rel="stylesheet">
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
@@ -23,7 +24,11 @@
       padding: 20px;
       margin-left: 20px;
       border-radius:10%;
+        font-family: 'Oxanium', serif;
     }
+    /* p{
+      font-family: 'Roboto', serif;
+    } */
     .blurb{
       width: 700px;
       background-color:rgba(51,51,51,0.5);
@@ -36,7 +41,7 @@
     .facts{
       position: relative;
       left:770px;
-      bottom: 1250px;
+      bottom: 1100px;
       background-color:rgba(51,51,51,0.5);
       max-width: 170px;
       padding: 5px;
@@ -44,6 +49,57 @@
       border: 2px;
       border-radius:10%;
       text-align: center
+    }
+
+    .earth{
+      width:300px;
+      height:300px;
+      position:absolute;
+      border-radius:50%;
+      overflow:hidden;
+      box-shadow: 0 0 60px -20px rgba(255, 189, 3, 0.72), -14px -15px 40px -10px rgba(255, 238, 191, 0.23);
+      left:80px;
+      top:-200px;
+      margin:-150px;
+    }
+    .earth .mask{
+      width:100%;
+      height:100%;
+      position: absolute;
+      box-shadow:inset -10px -10px 40px #251303, inset 10px 10px 30px -10px rgba(255, 204, 159, 0.6);
+      border-radius:50%;
+    }
+    .earth .clouds{
+      background:url(http://artem.anmedio.ru/dev/planet/clouds.png) repeat-x;
+      width:300px;
+      height:300px;
+      position:absolute;
+      border-radius:50%;
+      animation: translateBackground 30s infinite linear;
+      opacity: 0.4;
+    }
+    .earth .wrap{
+      width:300px;
+      height:300px;
+      position:absolute;
+      border-radius:50%;
+      animation: rotatePlanet 150s infinite linear;
+    }
+    @keyframes translateBackground{
+      0%{
+        background-position-x:0;
+      }
+      100%{
+        background-position-x:-600px;
+      }
+    }
+    @keyframes rotatePlanet{
+      0%{
+        transform:rotateZ(0);
+      }
+      100%{
+        transform:rotateZ(-360deg);
+      }
     }
   </style>
   </body>
