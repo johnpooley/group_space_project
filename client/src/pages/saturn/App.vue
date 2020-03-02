@@ -1,5 +1,10 @@
 <template lang="html">
   <div id="saturn" v-if="frenchSaturn">
+    <nav>
+      <ul>
+  <li><a href="/welcome">Home</a></li>
+</ul>
+</nav>
     <h1>{{ frenchSaturn.englishName }}</h1>
     <section class = "blurb">
     <p v-if="wikiSaturn">{{ wikiSaturn.query.pages[44474].extract }}</p></section>
@@ -11,13 +16,15 @@
         </div>
         <div class="mask"></div>
       </div>
-    <h2>Moons: {{ frenchSaturn.moons[0].moon }}</h2>
-    <h2>Moons: {{ frenchSaturn.moons[0].rel }}</h2>
-    <h2>Distance from Sun: {{ frenchSaturn.perihelion }}</h2>
-    <h2>Mass: {{ frenchSaturn.mass.massValue }}</h2>
-    <h2>Gravity: {{ frenchSaturn.gravity }}</h2>
-    <h2>Radius: {{ frenchSaturn.meanRadius }}</h2>
-    <h2>Discovered by: {{ frenchSaturn.discoveredBy }} N/A </h2>
+      <audio id="testAudio" hidden src="https://drive.google.com/uc?export=download&id=1tnyEFqZXGMRkT7DIybDsuzgXUwT2XyYD" type="audio/mpeg">
+      </audio>
+      <button v-on:click="playAudio">Play Planet Sound</button>
+    <h2>Moons</h2><p> {{ frenchSaturn.moons[0].moon }}</p>
+    <h2>Distance from Sun</h2> {{ frenchSaturn.perihelion }}</p>
+    <h2>Mass</h2> {{ frenchSaturn.mass.massValue }}</p>
+    <h2>Gravity</h2> {{ frenchSaturn.gravity }}</p>
+    <h2>Radius</h2> {{ frenchSaturn.meanRadius }}</p>
+    <h2>Discovered by</h2> {{ frenchSaturn.discoveredBy }} N/A </p>
   </div>
 
   </div>
@@ -46,6 +53,21 @@ export default {
     fetch('https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Saturn&origin=*')
     .then(res => res.json())
     .then(wikiSaturn => this.wikiSaturn = wikiSaturn)
+  },
+  methods: {
+    playAudio: function(event){
+      let audio = document.getElementById('testAudio');
+      if(audio.className == 'is-playing'){
+        audio.className = "";
+        event.target.innerHTML = "Play Planet Sound"
+        audio.pause();
+      }else{
+        audio.className = "is-playing";
+        event.target.innerHTML = "Pause";
+        audio.play();
+      }
+
+    }
   }
 }
 </script>

@@ -2,6 +2,8 @@
   <div id="app">
 
   <h1>Our Solar System</h1>
+  <p class="explain">Click below to view more info on the planets of our solar system.</p>
+</br>
 
     <section class="planets">
       <figure> <a href="../mercury"><img src="../../assets/mercury.png" alt="mercury" width="50" height="50"></a><figcaption>Mercury</figcaption></a></figure>
@@ -90,6 +92,11 @@ export default {
   margin-top: 60px;
 }
 
+p.explain {
+  font-size: 1.5em;
+  z-index: -1
+}
+
 body{
   background:url(http://artem.anmedio.ru/dev/planet/space.jpg) repeat;
 }
@@ -97,9 +104,10 @@ body{
 .planets{
   display: inline-block;
   overflow: scroll;
+  z-index: 1
 }
 
-img:hover{
+figure:hover{
   transform: scale(1.5);
 }
 figure{

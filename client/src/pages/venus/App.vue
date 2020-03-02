@@ -1,5 +1,10 @@
 <template lang="html">
   <div id="venus" v-if="frenchVenus">
+    <nav>
+      <ul>
+  <li><a href="/welcome">Home</a></li>
+</ul>
+</nav>
     <h1>{{ frenchVenus.englishName }}</h1>
     <section class = "blurb">
     <p v-if="wikiVenus">{{ wikiVenus.query.pages[32745].extract }}</p>
@@ -12,11 +17,14 @@
     </div>
     <div class="mask"></div>
   </div>
-    <h2>Distance from Sun: {{ frenchVenus.perihelion }}</h2>
-    <h2>Mass: {{ frenchVenus.mass.massValue }}</h2>
-    <h2>Gravity: {{ frenchVenus.gravity }}</h2>
-    <h2>Radius: {{ frenchVenus.meanRadius }}</h2>
-    <h2>Discovered by: N/A </h2>
+  <audio id="testAudio" hidden src="https://drive.google.com/uc?export=download&id=1SjhNvHpDEWEybE3F_stigJwEU-BbvJo_" type="audio/mpeg">
+  </audio>
+  <button v-on:click="playAudio">Play Planet Sound</button>
+    <h2>Distance from Sun</h2> <p>{{ frenchVenus.perihelion }}</p>
+    <h2>Mass</h2> <p>{{ frenchVenus.mass.massValue }}</p>
+    <h2>Gravity</h2> <p>{{ frenchVenus.gravity }}</p>
+    <h2>Radius</h2> <p>{{ frenchVenus.meanRadius }}</p>
+    <h2>Discovered by</h2><p> N/A </p>
 </div>
   </div>
 
@@ -44,6 +52,21 @@ export default {
     fetch('https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Venus&origin=*')
     .then(res => res.json())
     .then(wikiVenus => this.wikiVenus = wikiVenus)
+  },
+  methods: {
+    playAudio: function(event){
+      let audio = document.getElementById('testAudio');
+      if(audio.className == 'is-playing'){
+        audio.className = "";
+        event.target.innerHTML = "Play Planet Sound"
+        audio.pause();
+      }else{
+        audio.className = "is-playing";
+        event.target.innerHTML = "Pause";
+        audio.play();
+      }
+
+    }
   }
 }
 </script>

@@ -25,17 +25,17 @@
       margin-left: 20px;
       border-radius:10%;
         font-family: 'Oxanium', serif;
+        position: relative;
     }
-    /* p{
-      font-family: 'Roboto', serif;
-    } */
+
     .blurb{
       width: 700px;
       background-color:rgba(51,51,51,0.5);
       padding: 28px;
       margin-left: 20px;
       border-radius:10%;
-      font-size: 1.5em
+      font-size: 1.5em;
+      position: relative
     }
 
     .facts{
@@ -93,14 +93,47 @@
         background-position-x:-600px;
       }
     }
-    @keyframes rotatePlanet{
-      0%{
-        transform:rotateZ(0);
-      }
-      100%{
-        transform:rotateZ(-360deg);
-      }
-    }
+    button {
+    color:#ffffff;
+    font: old 84% 'trebuchet ms',helvetica,sans-serif;
+    background-color:#000000;
+    border:1px solid;
+    border-radius: 10px;
+    width: 110px;
+    height: 30px;
+    font-size: 0.7em;
+    font-weight: bold
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgba(51,51,51);
+  border-radius: 10px;
+  width: 100%;
+  position: fixed
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+nav{
+  position: relative;
+}
   </style>
   </body>
 </html>
