@@ -15,7 +15,7 @@
       <figure><a href="../uranus"><img src="../../assets/uranus.png" alt="uranus" width="250" height="250"></a><figcaption>Uranus</figcaption></figure>
       <figure><a href="../neptune"><img src="../../assets/neptune.png" alt="neptune" width="250" height="250"></a><figcaption>Neptune</figcaption></figure>
     </section>
-    
+
     <section>
       <h1>NASA Photo of The Day</h1>
       <input v-model="selectedDate" type="date">
@@ -103,7 +103,6 @@ body{
 
 .planets{
   display: inline-block;
-  overflow: scroll;
   z-index: 1
 }
 

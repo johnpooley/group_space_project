@@ -17,20 +17,14 @@
     </div>
     <div class="mask"></div>
   </div>
-    <div class="earth">
-    <div class="wrap">
-       <div class="background"></div>
-       <div class="clouds"></div>
-    </div>
-    <div class="mask"></div>
-  </div>
     <h2>Moons</h2> <p>{{ frenchEarth.moons[0].moon }}</p>
+    <h2>Satellites</h2><p>International Space Station</p>
     <h2>Distance from Sun</h2> <p>{{ frenchEarth.perihelion }}</p>
     <h2>Mass</h2> <p>{{ frenchEarth.mass.massValue }}</p>
     <h2>Gravity</h2> <p>{{ frenchEarth.gravity }}</p>
     <h2>Radius</h2> <p>{{ frenchEarth.meanRadius }}</p>
 </div>
-
+    <a href="../iss"><img class ='iss' src='../../assets/iss.png'></img></a>
   </div>
 
 </template>
@@ -72,6 +66,12 @@ export default {
   color: white;
   margin-left: 20px;
   padding: 10px;
+}
+
+.iss {
+  position: relative;
+  top: -2100px;
+  right: -1050px
 }
 
 .earth .background{
