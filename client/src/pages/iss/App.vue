@@ -23,16 +23,13 @@
 </template>
 
 <script>
-// setTimeout(function(){
-// window.location.reload(1);
-// }, 5000)
 export default {
   name: "iss",
   data() {
     return {
       issStats:null,
       wikiISS:null,
-      getData: null,
+
       results: {
         map_url: "",
         google_url: "",
@@ -45,17 +42,23 @@ export default {
      .then(res => res.json())
      .then(wikiIss => this.wikiIss = wikiIss);
 
-      fetch("http://api.open-notify.org/iss-now", {})
-      .then(res => res.json())
-      .then(issStats => this.issStats = issStats)
-      .then(response => {
-        this.results.map_url =`https://maps.google.com/maps?q=${response.iss_position.latitude},${response.iss_position.longitude}&t=&z=3&ie=UTF8&iwloc=&output=embed&maptype=satellite`
-        console.log("here")
-        // .then(setInterval(getData, 5000));
-      })
-      .catch(error => {
-        console.log(error);
-      });
+     this.getData();
+
+     window.setInterval(this.getData, 10000);
+    },
+    methods: {
+      getData() {
+        console.log("here");
+        fetch("http://api.open-notify.org/iss-now", {})
+        .then(res => res.json())
+        .then(issStats => this.issStats = issStats)
+        .then(response => {
+          this.results.map_url =`https://maps.google.com/maps?q=${response.iss_position.latitude},${response.iss_position.longitude}&t=&z=3&ie=UTF8&iwloc=&output=embed&maptype=satellite`
+        })
+        .catch(error => {
+          console.log(error);
+        });
+      }
     }
 };
 </script>

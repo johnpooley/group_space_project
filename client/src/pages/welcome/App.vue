@@ -2,6 +2,7 @@
   <div id="app">
 
   <h1>Our Solar System</h1>
+</br>
 
     <section class="planets">
       <figure> <a href="../mercury"><img src="../../assets/mercury.png" alt="mercury" width="50" height="50"></a><figcaption>Mercury</figcaption></a></figure>
@@ -79,7 +80,7 @@ body{
   overflow: scroll;
 }
 
-img:hover{
+figure:hover{
   transform: scale(1.5);
 }
 figure{
