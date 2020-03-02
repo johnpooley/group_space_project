@@ -16,7 +16,7 @@
     <section>
       <h1>NASA Photo of The Day</h1>
       <input v-model="selectedDate" type="date">
-      <button @click="apod">Get new image</button>
+      <button @click="apodDate">Get new image</button>
       <nasa-image-view :nasaImage="nasaImage" ></nasa-image-view>
     </section>
   </div>
@@ -37,7 +37,9 @@ export default {
       selectedDate: '2020-02-20'
     };
   },
-
+  created() {
+    this.apod();
+  },
   mounted(){
     fetch('https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Earth&origin=*')
     .then(res => res.json())
@@ -48,11 +50,16 @@ export default {
     })
   },
   methods: {
-    apod(selectedDate) {
+    apodDate(selectedDate) {
       fetch('https://api.nasa.gov/planetary/apod?api_key=C0ehDJAti1cLdlnjQciOknJg4WMAeOBqcpOL1G4a&date=' + this.selectedDate + '')
       .then( res => res.json())
       .then(nasaImage => this.nasaImage = nasaImage)
-    }
+    },
+    apod() {
+      fetch('https://api.nasa.gov/planetary/apod?api_key=C0ehDJAti1cLdlnjQciOknJg4WMAeOBqcpOL1G4a')
+      .then(res => res.json())
+      .then(nasaImage => this.nasaImage = nasaImage)
+    },
   },
   components: {
     "nasa-image-view": NasaImageView

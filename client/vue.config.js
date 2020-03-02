@@ -58,8 +58,15 @@ module.exports={
     'neptune':{
       entry: './src/pages/neptune/main.js',
       template: './public/index.html',
-      title:'pluto',
+      title:'neptune',
       chunk:['chunk-vendors', 'chunk-common', 'neptune']
+    },
+
+    'iss':{
+      entry: './src/pages/iss/main.js',
+      template: './public/index.html',
+      title:'iss',
+      chunk:['chunk-vendors', 'chunk-common', 'iss']
     }
   }
 }
