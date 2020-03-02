@@ -13,19 +13,26 @@
       <figure><a href="../uranus"><img src="../../assets/uranus.png" alt="uranus" width="250" height="250"></a><figcaption>Uranus</figcaption></figure>
       <figure><a href="../neptune"><img src="../../assets/neptune.png" alt="neptune" width="250" height="250"></a><figcaption>Neptune</figcaption></figure>
     </section>
+    
     <section>
       <h1>NASA Photo of The Day</h1>
       <input v-model="selectedDate" type="date">
       <button @click="apodDate">Get new image</button>
       <nasa-image-view :nasaImage="nasaImage" ></nasa-image-view>
     </section>
+    <section>
+      <people-in-space :peopleInSpace="peopleInSpace" v-if="peopleInSpace"></people-in-space>
+    </section>
+    <section>
+
+    </section>
   </div>
 </template>
 
 <script>
-
 import { eventBus } from './main.js'
 import NasaImageView from '../../components/NasaImageView.vue'
+import PeopleInSpace from '../../components/PeopleInSpace.vue'
 
 export default {
   name: 'App',
@@ -34,7 +41,8 @@ export default {
       planets:[],
       selectedPlanet: null,
       nasaImage: [],
-      selectedDate: '2020-02-20'
+      selectedDate: '2020-02-20',
+      peopleInSpace: null
     };
   },
   created() {
@@ -48,6 +56,10 @@ export default {
     eventBus.$on('planet-selected', (planet) => {
       this.selectedPlanet = planet;
     })
+
+    fetch('http://api.open-notify.org/astros.json')
+    .then(res => res.json())
+    .then(peopleInSpace => this.peopleInSpace = peopleInSpace)
   },
   methods: {
     apodDate(selectedDate) {
@@ -62,7 +74,8 @@ export default {
     },
   },
   components: {
-    "nasa-image-view": NasaImageView
+    "nasa-image-view": NasaImageView,
+    "people-in-space": PeopleInSpace
   }
 }
 </script>

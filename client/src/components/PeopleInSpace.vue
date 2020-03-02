@@ -1,11 +1,12 @@
-<!-- <template lang="html">
+<template lang="html">
   <div id="app">
-    <img :src="nasaImage.url" :alt="nasaImage.url">
-    <h2>Date: {{ nasaImage.date }}</h2>
-    <h1>Title: {{ nasaImage.title }}</h1>
-    <p>Explanation: {{ nasaImage.explanation }}</p>
-    <p>HDURL: {{ nasaImage.hdurl }}</p>
-    <p>COPYRIGHT: {{ nasaImage.copyright }}</p>
+    <h2>Number of people currently in space: {{ peopleInSpace.number }}</h2>
+    <h2>Name: {{ peopleInSpace.people[0].name }}</h2>
+    <h2>Craft: {{ peopleInSpace.people[0].craft }}</h2>
+    <h2>Name: {{ peopleInSpace.people[1].name }}</h2>
+    <h2>Craft: {{ peopleInSpace.people[1].craft }}</h2>
+    <h2>Name: {{ peopleInSpace.people[2].name }}</h2>
+    <h2>Craft: {{ peopleInSpace.people[2].craft }}</h2>
   </div>
 
 </template>
@@ -13,10 +14,10 @@
 <script>
 
 export default {
-  name: 'nasa-image-view',
-  props: ['nasaImage']
+  name: 'people-in-space',
+  props: ['peopleInSpace']
 }
 </script>
 
 <style lang="css" scoped>
-</style> -->
+</style>
