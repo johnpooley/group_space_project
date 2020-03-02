@@ -1,5 +1,10 @@
 <template lang="html">
   <div id="iss">
+    <nav>
+      <ul>
+  <li><a href="/welcome">Home</a></li>
+</ul>
+</nav>
     <h1>The International Space Station</h1>
     <section class ="blurb">
     <p v-if="wikiIss">{{wikiIss.query.pages[15043].extract}}

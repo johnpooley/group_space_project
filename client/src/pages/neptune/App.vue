@@ -1,5 +1,10 @@
 <template lang="html">
   <div id="neptune" v-if="frenchNeptune">
+    <nav>
+      <ul>
+  <li><a href="/welcome">Home</a></li>
+</ul>
+</nav>
     <h1>{{ frenchNeptune.englishName }}</h1>
     <section class = "blurb">
     <p v-if="wikiNeptune">{{ wikiNeptune.query.pages[19003265].extract }}</p></section>
@@ -12,13 +17,15 @@
         </div>
         <div class="mask"></div>
       </div>
-    <h2>Moons: {{ frenchNeptune.moons[0].moon }}</h2>
-    <h2>Moons: {{ frenchNeptune.moons[0].rel }}</h2>
-    <h2>Distance from Sun: {{ frenchNeptune.perihelion }}</h2>
-    <h2>Mass: {{ frenchNeptune.mass.massValue }}</h2>
-    <h2>Gravity: {{ frenchNeptune.gravity }}</h2>
-    <h2>Radius: {{ frenchNeptune.meanRadius }}</h2>
-    <h2>Discovered by: {{ frenchNeptune.discoveredBy }} N/A </h2>
+      <audio id="testAudio" hidden src="https://drive.google.com/uc?export=download&id=1tHpDu8pk6NC-vOUaz_SXhKjucHFQtmq0" type="audio/mpeg">
+      </audio>
+      <button v-on:click="playAudio">Play Planet Sound</button>
+    <h2>Moons</h2><p> {{ frenchNeptune.moons[0].moon }}</p>
+    <h2>Distance from Sun</h2><p> {{ frenchNeptune.perihelion }}</p>
+    <h2>Mass</h2><p> {{ frenchNeptune.mass.massValue }}</p>
+    <h2>Gravity</h2><p> {{ frenchNeptune.gravity }}</p>
+    <h2>Radius</h2><p> {{ frenchNeptune.meanRadius }}</p>
+    <h2>Discovered by</h2><p> {{ frenchNeptune.discoveredBy }} N/A </p>
   </div>
   </div>
 
@@ -46,6 +53,21 @@ export default {
     fetch('https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Neptune&origin=*')
     .then(res => res.json())
     .then(wikiNeptune => this.wikiNeptune = wikiNeptune)
+  },
+  methods: {
+    playAudio: function(event){
+      let audio = document.getElementById('testAudio');
+      if(audio.className == 'is-playing'){
+        audio.className = "";
+        event.target.innerHTML = "Play Planet Sound"
+        audio.pause();
+      }else{
+        audio.className = "is-playing";
+        event.target.innerHTML = "Pause";
+        audio.play();
+      }
+
+    }
   }
 }
 </script>

@@ -1,5 +1,10 @@
 <template lang="html">
   <div id="uranus" v-if="frenchUranus">
+    <nav>
+      <ul>
+  <li><a href="/welcome">Home</a></li>
+</ul>
+</nav>
     <h1>{{ frenchUranus.englishName }}</h1>
     <section class = "blurb">
     <p v-if="wikiUranus">{{ wikiUranus.query.pages[44475].extract }}</p>
@@ -12,13 +17,15 @@
         </div>
         <div class="mask"></div>
       </div>
-    <h2>Moons: {{ frenchUranus.moons[0].moon }}</h2>
-    <h2>Moons: {{ frenchUranus.moons[0].rel }}</h2>
-    <h2>Distance from Sun: {{ frenchUranus.perihelion }}</h2>
-    <h2>Mass: {{ frenchUranus.mass.massValue }}</h2>
-    <h2>Gravity: {{ frenchUranus.gravity }}</h2>
-    <h2>Radius: {{ frenchUranus.meanRadius }}</h2>
-    <h2>Discovered by: {{ frenchUranus.discoveredBy }} </h2>
+      <audio id="testAudio" hidden src="https://drive.google.com/uc?export=download&id=1JVdBcYNAI3GA7VV99FrlkTx_3DTevoKI" type="audio/mpeg">
+      </audio>
+      <button v-on:click="playAudio">Play Planet Sound</button>
+    <h2>Moons</h2> <p>{{ frenchUranus.moons[0].moon }}</p>
+    <h2>Distance from Sun</h2> <p>{{ frenchUranus.perihelion }}</p>
+    <h2>Mass</h2> <p>{{ frenchUranus.mass.massValue }}</p>
+    <h2>Gravity</h2> <p>{{ frenchUranus.gravity }}</p>
+    <h2>Radius</h2> <p>{{ frenchUranus.meanRadius }}</p>
+    <h2>Discovered by</h2> <p>{{ frenchUranus.discoveredBy }} </p>
   </div>
 
   </div>
@@ -47,8 +54,24 @@ export default {
     fetch('https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Uranus&origin=*')
     .then(res => res.json())
     .then(wikiUranus => this.wikiUranus = wikiUranus)
+  },
+
+  methods: {
+    playAudio: function(event){
+      let audio = document.getElementById('testAudio');
+      if(audio.className == 'is-playing'){
+        audio.className = "";
+        event.target.innerHTML = "Play Planet Sound"
+        audio.pause();
+      }else{
+        audio.className = "is-playing";
+        event.target.innerHTML = "Pause";
+        audio.play();
+      }
+
+    }
   }
-}
+  }
 </script>
 
 <style lang="css" scoped>

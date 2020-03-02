@@ -2,6 +2,7 @@
   <div id="app">
 
   <h1>Our Solar System</h1>
+  <p class="explain">Click below to view more info on the planets of our solar system.</p>
 </br>
 
     <section class="planets">
@@ -71,6 +72,11 @@ export default {
   margin-top: 60px;
 }
 
+p.explain {
+  font-size: 1.5em;
+  z-index: -1
+}
+
 body{
   background:url(http://artem.anmedio.ru/dev/planet/space.jpg) repeat;
 }
@@ -78,6 +84,7 @@ body{
 .planets{
   display: inline-block;
   overflow: scroll;
+  z-index: 1
 }
 
 figure:hover{

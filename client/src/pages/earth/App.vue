@@ -1,5 +1,10 @@
 <template lang="html">
   <div id="earth" v-if="frenchEarth">
+    <nav>
+      <ul>
+  <li><a href="/welcome">Home</a></li>
+</ul>
+</nav>
     <h1>{{ frenchEarth.englishName }}</h1>
     <section class ="blurb">
     <p v-if="wikiEarth">{{ wikiEarth.query.pages[9228].extract }}</p>
@@ -20,11 +25,10 @@
     <div class="mask"></div>
   </div>
     <h2>Moons</h2> <p>{{ frenchEarth.moons[0].moon }}</p>
-    <h2>Moons</h2> {{ frenchEarth.moons[0].rel }}</p>
-    <h2>Distance from Sun</h2> {{ frenchEarth.perihelion }}</p>
-    <h2>Mass</h2> {{ frenchEarth.mass.massValue }}</p>
-    <h2>Gravity</h2> {{ frenchEarth.gravity }}</p>
-    <h2>Radius</h2> {{ frenchEarth.meanRadius }}</p>
+    <h2>Distance from Sun</h2> <p>{{ frenchEarth.perihelion }}</p>
+    <h2>Mass</h2> <p>{{ frenchEarth.mass.massValue }}</p>
+    <h2>Gravity</h2> <p>{{ frenchEarth.gravity }}</p>
+    <h2>Radius</h2> <p>{{ frenchEarth.meanRadius }}</p>
 </div>
 
   </div>
